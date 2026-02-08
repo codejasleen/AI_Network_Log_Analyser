@@ -9,9 +9,19 @@ st.write("Upload proxy log file to generate AI insights")
 uploaded_file = st.file_uploader("Upload proxy.log", type=["txt","log"])
 
 # add your Gemini API key
-genai.configure(api_key="AIzaSyCwyy1c9zL93RPqce_Abj-XFctfEuv36KU")
+genai.configure("GEMINI_API_KEY")
 
 model = genai.GenerativeModel("gemini-1.5-flash")
+
+def analyze_logs(prompt):
+    response = model.generate_content(
+        prompt,
+        generation_config={
+            "temperature": 0.3,
+            "max_output_tokens": 800,
+        }
+    )
+    return response.text
 
 if uploaded_file is not None:
     log_data = uploaded_file.read().decode("utf-8")
