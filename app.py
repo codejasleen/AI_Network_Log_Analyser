@@ -10,9 +10,9 @@ try:
 except ImportError:
     pass  # dotenv not installed, will use system environment variables
 
-st.set_page_config(page_title="AI Proxy Traffic Analyzer", page_icon="🔍", layout="wide")
+st.set_page_config(page_title="AI Proxy Traffic Analyzer", layout="wide")
 
-st.title("🔍 AI Proxy Traffic Analyzer")
+st.title("AI Proxy Traffic Analyzer")
 st.markdown("Upload your proxy.log file to analyze traffic patterns, behavioral anomalies, and domain characteristics using AI-powered pattern detection")
 
 # Configure API key with error handling
